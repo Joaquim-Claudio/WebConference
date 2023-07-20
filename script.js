@@ -1,39 +1,24 @@
-class Person{
-    constructor(name, birthDate){
-        this.name = name;
-        this.birthDate = birthDate;
+let form = document.getElementById("form");
+
+form.addEventListener("submit", function(event){
+    let pass1 = document.getElementById("pass1");
+    let pass2 = document.getElementById("pass2");
+    if(pass1.value != pass2.value){
+        alert("As duas passwords devem ser iguais!!!");
+        event.preventDefault();
+    }else{
+        alert("Submetido com sucesso!");
     }
-    static compareBirthDate (personA, personB){
-        return personA.birthDate - personB.birthDate;
+})
+
+async function fetchByBreed(breed){
+    try{
+        let response = await fetch(`https://dog.ceo/api/breed/${breed}/images/random`);
+        let jsonData = await response.json();
+        document.getElementById("myImg").src = jsonData.message;
+    } catch(error){
+        alert(error);
     }
 }
 
-let firstPerson = new Person("John", new Date(2003, 4, 13));
-let secondPerson = new Person("Kelly", new Date(2003, 4, 13));
-
-if(Person.compareBirthDate(firstPerson, secondPerson) < 0){
-    console.log(`${firstPerson.name} is the oldest.`);
-} else if(Person.compareBirthDate(firstPerson, secondPerson) == 0){
-    console.log("Both have the same age.");
-} else{
-    console.log(`${secondPerson.name} is the oldest.`);
-}
-
-
-let personArray = [
-    new Person("Paul", new Date()),
-    new Person("Berry", new Date()),
-    new Person("Benjamin", new Date()),
-    new Person("Teresa", new Date())
-]
-
-// personArray.sort(Person.compareBirthDate);
-
-// for(let i = 0; i < personArray.length; i++){
-//     console.log(personArray[i].name);
-// }
-
-console.log(personArray[3].birthDate);
-
-let date = new Date();
-console.log(Date.toString());
+fetchByBreed("husky");
