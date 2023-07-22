@@ -31,14 +31,14 @@ window.onload = function() {
                         swal.showValidationError(`Pedido falhou: ${error}`);
                     });
             },
-            allouOutsideClick: () => !swal.isLoading()
+            allowOutsideClick: () => !swal.isLoading()
 
         }).then(result => {
             if(result.value){
                 if(!result.value.err_code) {
                     swal({title: "Inscrição feita com sucesso!"})
                 }else{
-                    swal({title: `${result.value.err_message}`})
+                    swal({title: `${result.valeu.err_message}`})
                 }
             }
         })

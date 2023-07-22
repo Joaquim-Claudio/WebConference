@@ -50,3 +50,27 @@ header.masthead .intro-text .intro-heading {
     border-color: #3677b1 !important;
     color: white;
 }
+
+section{
+    padding: 50px 0;
+}
+
+section h2.section-heading{
+    font-size: 40px;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+section h3.section-subheading{
+    font-size: 16px;
+    font-weight: 400;
+    font-style: italic;
+    margin-bottom: 75px;
+    text-transform: none;
+    font-family: 'Droid Serif','Helvetica Neue', Helvetica, sans-serif;
+}
+
+.topic-heading{
+    margin: 15px 0;
+}
