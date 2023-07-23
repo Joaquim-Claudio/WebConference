@@ -12,9 +12,9 @@ window.onload = function() {
             cancelButtonText: "Cancelar",
             showLoaderOnConfirm: true,
             preConfirm: () => {
-                const name = document.getElementById("txtName").value;
-                const email = document.getElementById("txtEmail").value;
-                const url_base = "https://fcawebbook.herokuapp.com";
+                const name = document.getElementById("txtName").value
+                const email = document.getElementById("txtEmail").value
+                const url_base = "https://fcawebbook.herokuapp.com"
                 return
                     fetch (`${url_base}/conferences/1/participants/${email}`,{
                         headers: { "content-Type": "application/x-www-form-urlencoded" },
@@ -23,12 +23,12 @@ window.onload = function() {
                     })
                     .then(response => {
                         if(!response.ok){
-                            throw new Error(response.statusText);
+                            throw new Error(response.statusText)
                         }
-                        return response.json();
+                        return response.json()
                     })
                     .catch(error => {
-                        swal.showValidationError(`Pedido falhou: ${error}`);
+                        swal.showValidationError(`Pedido falhou: ${error}`)
                     });
             },
             allowOutsideClick: () => !swal.isLoading()
@@ -44,3 +44,93 @@ window.onload = function() {
         })
     })
 }
+
+(async () => {
+    const renderSpeakers = document.getElementById("renderSpeakers")
+    let txtSpeaker = ""
+    
+    const url_base = "https://fcawebbook.herokuapp.com"
+    const response = await fetch(`${url_base}/conferences/1/speakers`)
+    const speakers = await response.json()
+
+    for(let speaker of speakers){
+        txtSpeaker += `
+            <div class="col-sm-4">
+                <div class="team-member">
+                    <img id="${speaker.idSpeaker}" class="mx-auto rounded-circle viewSpeaker" src="${speaker.foto}" alt="">
+                    <h4>${speaker.name}</h4>
+                    <p class="text-muted">${speaker.jobRole}</p>
+                    <ul class="list-inline social-buttons">`
+
+        if(speaker.twitter !== null){
+            txtSpeaker += `
+            <li class="list-inline-item">
+                <a href="${speaker.twitter}" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>`
+        }
+        if(speaker.facebook !== null){
+            txtSpeaker += `
+            <li class="list-inline-item">
+                <a href="${speaker.facebook}" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </li>`
+        }
+        if(speaker.linkedin !== null){
+            txtSpeaker += `<li class="list-inline-item">
+            <a href="${speaker.linkedin}" target="_blank">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>`
+        }
+        txtSpeaker += `
+                    </ul>
+                </div>
+            </div>`
+    }
+
+    const btnView = document.getElementsByClassName("viewSpeaker")
+    for(let i = 0; i < btnView.length; i++){
+        btnView[i].addEventListener("click", () => {
+            for(const speaker of speakers){
+                if(speaker.idSpeaker == btnView[i].getAttribute("id")){
+                    swal({
+                        title: speaker.name,
+                        text: speaker.bio,
+                        imageUrl: speaker.foto,
+                        imageWidth: 400,
+                        imageHeight: 400,
+                        imageAlt: "Foto do orador",
+                        animation: false
+                    })
+                }
+            }
+        })
+    }
+
+    renderSpeakers.innerHTML = txtSpeaker
+}) ()
+
+
+(async () => {
+    const renderSponsors = document.getElementById("renderSponsors")
+    let txtSponsor = ""
+
+    const url_base = "https://fcawebbook.herokuapp.com"
+    const response = await fetch(`${url_base}/conferences/1/sponsors`)
+    const sponsors = await response.json()
+
+    for(let sponsor of sponsors){
+        txtSponsor += `
+            <div class="col-md-3 col-sm-6">
+                <a href="${sponsor.link}" target="_blank">
+                    <img class="img-fluid d-block mx-auto"
+                        src="${sponsor.logo}"
+                        alt="${sponsor.name}">
+                </a>
+            </div>`
+    }
+    renderSponsors.innerHTML = txtSponsor
+}) ()

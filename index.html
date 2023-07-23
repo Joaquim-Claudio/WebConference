@@ -37,7 +37,7 @@
                             <a class="nav-link" href="#sponsors">sponsors</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#contacts">contatos</a>
+                            <a class="nav-link" href="#contacts">contactos</a>
                         </li>
                     </ul>
                 </div>
@@ -64,7 +64,7 @@
                     <!--Título e texto principal-->
                     <div class="col-lg-12 text-center">
                         <h2 class="section-heading text-uppercase">sobre</h2>
-                        <h3 class="section-subheading">Conferência sobre a Web a decorrer no dia <b>22 de maio de 2024,</b> no <b>Pavilhão da Web,</b> Porto</h3>
+                        <h3 class="section-subheading">Conferência sobre a Web a decorrer no dia <b>22 de maio de 2024,</b> no <b>Pavilhão da Web,</b> Porto.</h3>
                     </div>
                 </div>
                 <div class="row">
@@ -93,14 +93,98 @@
 <!--########################################################################################################################################################-->
         <section id="speakers">
             <!--Informação sobre os oradores da conferência-->
+            <div class="container">
+                <div class="row">
+                    <!--Título e texto principal-->
+                    <div class="col-lg-12 text-center">
+                        <h2 class="section-heading text-uppercase">oradores</h2>
+                        <h3 class="section-subheading">Especialistas internacionais do mundo da Web.</h3>
+                    </div>
+                </div>
+                <div class="row" id="renderSpeakers">
+                    <!--Conteúdo a ser injetado via JavaScript-->
+
+                </div>
+                <div class="row">
+                    <!--Texto descritivo-->
+                    <div class="col-lg-12 text-center">
+                        <p class="text-muted">Oradores de grande qualidade que irão partilhar as últimas tendências do mundo do desenvolvimento para a Web!</p>
+                    </div>
+                </div>
+            </div>
         </section>
 <!--########################################################################################################################################################-->
         <section id="sponsors">
             <!--Informação sobre os sponsors da conferência-->
+            <div class="container">
+                <div class="row">
+                    <!--Título-->
+                    <div class="col-lg-12 text-center">
+                        <h2 class="section-heading text-uppercase">sponsors</h2>
+                    </div>
+                </div>
+                <div class="row" id="renderSponsors">
+                    <!--Conteúdo a ser injetado via JavaScript-->
+                </div>
+            </div>
         </section>
 <!--########################################################################################################################################################-->
         <section id="contacts">
             <!--Formulário para contatos e mapa-->
+            <div class="container">
+                <div class="row">
+                    <!--Título-->
+                    <div class="col-lg-12 text-center">
+                        <h2 class="section-heading text-uppercase">CONTACTOS</h2>
+                        <h3 class="section-subheading">Deixe-nos a sua sugestão/dúvida e nós rapidamente entraremos em contacto consigo!</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <form id="contactForm" name="sendMessage">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <!--Campo nome-->
+                                    <div class="form-group">
+                                        <input 
+                                            id="name"
+                                            class="form-control"
+                                            type="text"
+                                            placeholder="O seu nome" required>
+                                    </div>
+                                    <!--Campo email-->
+                                    <div class="form-group">
+                                        <input 
+                                            id="email"
+                                            class="form-control"
+                                            type="email"
+                                            placeholder="O seu email" required>
+                                    </div>
+                                    <!--Campo telemóvel-->
+                                    <div class="form-group">
+                                        <input 
+                                            id="tel"
+                                            class="form-control"
+                                            type="tel"
+                                            placeholder="O seu número de telemóvel">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <!--Campo mensagem-->
+                                    <input 
+                                            id="tel"
+                                            class="form-control"
+                                            type="message"
+                                            placeholder="O seu número de telemóvel">
+                                </div>
+                                <div class="col-lg-12 text-center">
+                                    <!--Botão de envio da mensagem-->
+                                </div>
+                            </div>    
+                        </form>
+                    </div>
+                </div>
+            </div>
         </section>
 <!--########################################################################################################################################################-->
         <footer>
