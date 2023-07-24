@@ -86,6 +86,8 @@ window.onload = function() {
             if(result.value){
                 if(!result.value.err_code) {
                     swal("AUTORIZADO!", "Bem vindo à área de gestão", "success")
+                    const email = document.getElementById("txtEmail").value
+                    sessionStorage.token = email
                 }else{
                     swal("ACESSO NEGADO!", `${result.valeu.err_message}`, "error")
                 }
