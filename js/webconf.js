@@ -1,3 +1,6 @@
+
+const url_base = "https://fcawebbook.herokuapp.com"
+
 window.onload = function() {
     const btnRegister = document.getElementById("btnRegister");
     btnRegister.addEventListener("click", function(){
@@ -14,7 +17,7 @@ window.onload = function() {
             preConfirm: () => {
                 const name = document.getElementById("txtName").value
                 const email = document.getElementById("txtEmail").value
-                const url_base = "https://fcawebbook.herokuapp.com"
+
                 return
                     fetch (`${url_base}/conferences/1/participants/${email}`,{
                         headers: { "content-Type": "application/x-www-form-urlencoded" },
@@ -49,7 +52,6 @@ window.onload = function() {
     const renderSpeakers = document.getElementById("renderSpeakers")
     let txtSpeaker = ""
     
-    const url_base = "https://fcawebbook.herokuapp.com"
     const response = await fetch(`${url_base}/conferences/1/speakers`)
     const speakers = await response.json()
 
@@ -118,7 +120,6 @@ window.onload = function() {
     const renderSponsors = document.getElementById("renderSponsors")
     let txtSponsor = ""
 
-    const url_base = "https://fcawebbook.herokuapp.com"
     const response = await fetch(`${url_base}/conferences/1/sponsors`)
     const sponsors = await response.json()
 
@@ -134,3 +135,24 @@ window.onload = function() {
     }
     renderSponsors.innerHTML = txtSponsor
 }) ()
+
+
+const contactForm = document.getElementById("contactForm")
+contactForm.addEventListener("submit", async () => {
+    const name = document.getElementById("name").value
+    const email = document.getElementById("email").valeu
+    const message = document.getElementById("message").value
+
+    const response = await fetch(`${url_base}/contacts/emails`, {
+        headers: {"Content-Type": "application/x-www-form-urlencoded"},
+        method: "POST",
+        body: `email=${email}&name=${name}&subject=${message}`
+    })
+
+    const result = await response.json()
+    if(result.valeu.success) {
+        swal('Envio de mensagem', result.value.message.pt, 'success')
+    }else{
+        swal('Envio de mensagem', result.value.message.pt, 'error')
+    }
+})

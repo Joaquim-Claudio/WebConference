@@ -83,10 +83,62 @@ section h3.section-subheading{
     margin: 20px 0 0;
 }
 
-.list-inline-item{
-    margin: 0 10px;
-}
 
 #renderSpeakers{
     margin-bottom: 40px;
 }
+
+.map-responsive{
+    overflow: hidden;
+    padding-bottom: 40%;
+    position: relative;
+    height: 0;
+}
+
+.map-responsive iframe{
+    left: 0;
+    top: 0;
+    height: 75%;
+    width: 100%;
+    position: absolute;
+}
+
+footer{
+    padding: 10px 0;
+    text-align: center;
+    background-color:#3678b156;
+    margin-bottom: 20px;
+}
+
+footer span.copyright{
+    font-family: 'Montserrat', 'Helvetica Neue', Helvetica, sans-serif;
+    font-size: 90%;
+    line-height: 40px;
+}
+
+#contacts{
+    padding: 0;
+}
+
+ul.social-buttons{
+    margin-bottom: 0;
+}
+
+ul.social-buttons li a {
+    font-size: 20px;
+    line-height: 40px;
+    display: block;
+    width: 40px;
+    height: 40px;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    color: white;
+    border-radius: 100%;
+    outline: none;
+    background-color: #212529;
+}
+
+ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons li a:hover{
+    background-color: #3677b1;
+} 

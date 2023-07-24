@@ -31,13 +31,16 @@
                             <a class="nav-link" href="#about">sobre</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#speakers">speakers</a>
+                            <a class="nav-link" href="#speakers">oradores</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#sponsors">sponsors</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#contacts">contactos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" id="btnLogin">área privada</a>
                         </li>
                     </ul>
                 </div>
@@ -171,17 +174,36 @@
                                 </div>
                                 <div class="col-md-6">
                                     <!--Campo mensagem-->
-                                    <input 
-                                            id="tel"
+                                    <div class="form-group">
+                                        <textarea 
+                                            id="message" 
                                             class="form-control"
-                                            type="message"
-                                            placeholder="O seu número de telemóvel">
+                                            placeholder="A sua mensagem" required></textarea>
+                                    </div>
                                 </div>
                                 <div class="col-lg-12 text-center">
                                     <!--Botão de envio da mensagem-->
+                                    <button
+                                        id="sendMessageButton"
+                                        class="btn btn-primary btn-xl text-uppercase"
+                                        type="submit">
+                                        Enviar mensagem
+                                    </button>
                                 </div>
                             </div>    
                         </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container" id="googleMap">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <div class="map-responsive">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24033.56628808022!2d-8.66971750516831!3d41.15207898374583!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd24650ec58a91d5%3A0xd1b6b8554b0ccdaa!2s4150-169%20Massarelos!5e0!3m2!1spt-PT!2spt!4v1690154337249!5m2!1spt-PT!2spt" 
+                            width="850" height="350" style="border:0;" allowfullscreen="" loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -189,6 +211,31 @@
 <!--########################################################################################################################################################-->
         <footer>
             <!--Links para as redes sociais e copyright-->
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <!--Informação sobre copyright-->
+                        <span class="copyright">
+                            Copyright  &copy;  WebConference 2023
+                        </span>
+                    </div>
+                    <div class="col-md-6">
+                        <!--Ícones com links para as redes sociais-->
+                        <ul class="list-inline social-buttons">
+                            <li class="<ul class="list-inline">
+                                <li class="list-inline-item">
+                                    <a href="#"><i class="fab fa-twitter fa-black"></i></a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </footer>
 <!--########################################################################################################################################################-->
 
@@ -196,6 +243,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.26.9/sweetalert2.all.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
         <script src="js/webconf.js"></script>
     </body>
 </html>
