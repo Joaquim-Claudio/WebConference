@@ -20,7 +20,7 @@ window.onload = function() {
 
                 return
                     fetch (`${url_base}/conferences/1/participants/${email}`,{
-                        headers: { "content-Type": "application/x-www-form-urlencoded" },
+                        headers: { "Content-Type": "application/x-www-form-urlencoded" },
                         method: "POST",
                         body: `nomeparticipant=${name}`
                     })
@@ -110,7 +110,7 @@ window.onload = function() {
                     <div class="team-member">
                         <img id="${speaker.idSpeaker}" class="mx-auto rounded-circle viewSpeaker" src="${speaker.foto}" alt="">
                         <h4>${speaker.name}</h4>
-                        <p class="text-muted">${speaker.jobRole}</p>
+                        <p class="text-muted">${speaker.cargo}</p>
                         <ul class="list-inline social-buttons">`
     
             if(speaker.twitter !== null){
