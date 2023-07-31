@@ -14,29 +14,50 @@ window.onload = function (){
         const txtLinkedin = document.getElementById("txtLinkedin").value
         const txtBio = document.getElementById("txtBio").value
 
-        const response = await fetch(`${url_base}/speakers`, {
-            headers: {"Content-Type": "application/x-www-form-urlencoded"},
-            method: 'POST',
-            body: 
-            `name=${txtName}&cargo=${txtJob}&foto=${txtPhoto}&
-            facebook=${txtFacebook}&twitter=${txtTwitter}&
-            linkedin=${txtLinkedin}&bio=${txtBio}`
-        })
-        const isNewSpeaker = await response.json()
-        const newSpeakerId = isNewSpeaker.headers.get("Location")
-        const newUrl = `${url_base}/conferences/1/speakers/${newSpeakerId}`
-
-        const response2 = await fetch(newUrl, {
-            headers: {"Content-Type": "application/x-www-form-urlencoded"},
-            method: 'POST'
-        })
-
-        const isNewSpeaker2 = await response2.json()
-        if(isNewSpeaker2.value.success){
-            swal("Registo/Atualização de orador", isNewSpeaker2.value.massage.pt, 'success')
+        if(isNew) {
+            // Adiciona orador
+            const response = await fetch(`${url_base}/speakers`, {
+                headers: {"Content-Type": "application/x-www-form-urlencoded"},
+                method: 'POST',
+                body: 
+                `nome=${txtName}&cargo=${txtJob}&foto=${txtPhoto}&
+                facebook=${txtFacebook}&twitter=${txtTwitter}&
+                linkedin=${txtLinkedin}&bio=${txtBio}`
+            })
+            const isNewSpeaker = await response.json()
+            const newSpeakerId = response.headers.get("Location")
+            const newUrl = `${url_base}/conferences/1/speakers/${newSpeakerId}`
+    
+            const response2 = await fetch(newUrl, {
+                headers: {"Content-Type": "application/x-www-form-urlencoded"},
+                method: 'POST'
+            })
+    
+            const isNewSpeaker2 = await response2.json()
+            if(isNewSpeaker2.value.success){
+                swal("Registo de orador", isNewSpeaker2.value.massage.pt, 'success')
+            }else{
+                swal("Registo de orador", isNewSpeaker2.value.massage.pt, 'error')
+            }
         }else{
-            swal("Registo/Atualização de orador", isNewSpeaker2.value.massage.pt, 'error')
+            // Atualiza orador
+            const txtSpeakerId = document.getElementById("txtSpeakerId").value
+            const response = await fetch(`${url_base}/speakers/${txtSpeakerId}`, {
+                headers: {"Content-Type": "application/x-www-form-urlencoded"},
+                method: 'PUT',
+                body: 
+                `nome=${txtName}&cargo=${txtJob}&foto=${txtPhoto}&
+                facebook=${txtFacebook}&twitter=${txtTwitter}&
+                linkedin=${txtLinkedin}&bio=${txtBio}`
+            })
+            const newSpeaker = await response.json()
+            if(newSpeaker.value.success){
+                swal("Atualização de orador", newSpeaker.value.massage.pt, 'success')
+            }else{
+                swal("Atualização de orador", newSpeaker.value.massage.pt, 'error')
+            }
         }
+
     })
 
 // #############################################################################################################################
@@ -46,12 +67,12 @@ window.onload = function (){
         let strHtml = `
             <thead>
                 <tr><th class='w-100 text-center bg-warning' colspan='4'>
-                    Lista de Participantes</th>
+                    Lista de Oradores</th>
                 </tr>
                 <tr class='bg-info'>
                     <th class='w-2'>#</th>
                     <th class='w-50'>Nome</th>
-                    <th class='w-38'>E-mail</th>
+                    <th class='w-38'>Cargo</th>
                     <th class='w-10'>Ações</th>
                 </tr>
             </thead><tbody>`
@@ -64,7 +85,7 @@ window.onload = function (){
             strHtml += `
                 <tr>
                     <td>${i}</td>
-                    <td>${speaker.name}</td>
+                    <td>${speaker.nome}</td>
                     <td>${speaker.cargo}</td>
                     <td>
                         <i id='${speaker.idSpeaker}' class="fas fa-edit edit"></i>
@@ -86,7 +107,7 @@ window.onload = function (){
                 for(const speaker of speakers){
                     if(speaker.idSpeaker == btnEdit[i].getAttribute("id")){
                         document.getElementById("txtSpeakerId").value = speaker.idSpeaker
-                        document.getElementById("txtName").value = speaker.name
+                        document.getElementById("txtName").value = speaker.nome
                         document.getElementById("txtJob").value = speaker.cargo
                         document.getElementById("txtPhoto").value = speaker.foto
                         document.getElementById("txtFacebook").value = speaker.facebook

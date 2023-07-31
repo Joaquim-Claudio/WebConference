@@ -31,7 +31,7 @@ const renderParticipants = async () => {
         strHtml += `
             <tr>
                 <td>${i}</td>
-                <td>${participant.nameParticipant}</td>
+                <td>${participant.nomeParticipant}</td>
                 <td>${participant.idParticipant}</td>
                 <td><i id='${participant.idParticipant}' class='fas fa-trash-alt remove'></i></td>
             </tr>`

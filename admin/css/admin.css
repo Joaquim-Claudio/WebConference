@@ -1,0 +1,143 @@
+header.masthead {
+    text-align: center;
+    color: white;
+    background-image: url(img/conference.jpg);
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: cover;
+}
+
+header.masthead .intro-text{
+    padding-top: 200px;
+    padding-bottom: 100px;
+}
+
+header.masthead .intro-text .intro-lead-in{
+    font-size: 22px;
+    font-style: italic;
+    line-height: 22px;
+    margin-bottom: 10px;
+    font-family: 'Droid Serif','Helvetica Neue', Helvetica, sans-serif;
+}
+
+header.masthead .intro-text .intro-heading {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 50px;
+    margin-bottom: 30px;
+    font-family: 'Montserrat', 'Helvetica Neue', Helvetica, sans-serif;
+}
+
+.btn{
+    font-family: 'Montserrat', 'Helvetica Neue', Helvetica, sans-serif;
+}
+
+.btn-xl{
+    font-size: 16px;
+    padding: 10px 20px;
+}
+
+.btn-primary{
+    background-color: #428bca;
+    border-color: #428bca;
+    margin-bottom: 50px;
+}
+
+.btn-primary:active, .btn-primary:focus, .btn-primary:hover{
+    background-color: #3677b1 !important;
+    border-color: #3677b1 !important;
+    color: white;
+}
+
+section{
+    padding: 50px 0;
+}
+
+section h2.section-heading{
+    font-size: 40px;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+section h3.section-subheading{
+    font-size: 16px;
+    font-weight: 400;
+    font-style: italic;
+    margin-bottom: 75px;
+    text-transform: none;
+    font-family: 'Droid Serif','Helvetica Neue', Helvetica, sans-serif;
+}
+
+.topic-heading{
+    margin: 15px 0;
+}
+
+#speakers{
+    background-color: rgb(232, 240, 237);
+}
+
+.team-member h4{
+    margin: 20px 0 0;
+}
+
+
+#renderSpeakers{
+    margin-bottom: 40px;
+}
+
+.map-responsive{
+    overflow: hidden;
+    padding-bottom: 40%;
+    position: relative;
+    height: 0;
+}
+
+.map-responsive iframe{
+    left: 0;
+    top: 0;
+    height: 75%;
+    width: 100%;
+    position: absolute;
+}
+
+footer{
+    padding: 10px 0;
+    text-align: center;
+    background-color:#3678b156;
+    margin-bottom: 20px;
+}
+
+footer span.copyright{
+    font-family: 'Montserrat', 'Helvetica Neue', Helvetica, sans-serif;
+    font-size: 90%;
+    line-height: 40px;
+}
+
+#contacts{
+    padding: 0;
+}
+
+ul.social-buttons{
+    margin-bottom: 0;
+}
+
+ul.social-buttons li a {
+    font-size: 20px;
+    line-height: 40px;
+    display: block;
+    width: 40px;
+    height: 40px;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    color: white;
+    border-radius: 100%;
+    outline: none;
+    background-color: #212529;
+}
+
+ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons li a:hover{
+    background-color: #3677b1;
+} 
